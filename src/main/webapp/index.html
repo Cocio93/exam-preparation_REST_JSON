@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="personModule" ng-controller="myCtrl">
+    <head>
+        <title>exam-preparation_REST_JSON</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-loader.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="personScript.js"></script>
+    </head>
+
+    <body>
+        
+        <div class="col-sm-3"></div>
+
+        <div class="col-sm-6">
+            <h3 style="border-bottom: 1px solid black">exam-preparation_REST_JSON</h3><br>
+            <form>
+                <div id="labels" class="col-sm-5">
+                    <label>Firstname: </label><br>              
+                    <label>Lastname: </label><br>
+                    <label>Street: </label><br>
+                    <label>City: </label><br>
+                    <label>Amount:</label>
+                </div>
+                <div id="checkboxes" class="col-sm-2">
+                    <input type="checkbox" name="Firstname" ng-model="fname" /><br>
+                    <input type="checkbox" name="Lastname" ng-model="lname" /><br>
+                    <input type="checkbox" name="Street" ng-model="street" /><br>
+                    <input type="checkbox" name="Cty" ng-model="city" /><br>
+                    <input type="number" ng-model="amount"/>
+                </div>
+                <input type="button" value="Generate" ng-click="getPersons()"/>
+            </form>
+
+            <div ng-show="isSearched">
+                <table class="table">
+                    <thead>
+                    <th ng-repeat="(key, value) in persons[0]">{{key}}</th>  
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="p in persons">
+                            <td ng-repeat="(key, value) in p">
+                                {{value}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-sm-3"></div>
+    </body>
+</html>
